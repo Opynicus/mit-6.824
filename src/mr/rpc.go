@@ -27,6 +27,12 @@ type ExampleReply struct {
 const (
 	MAP    = 0
 	REDUCE = 1
+	NONE   = 2
+
+	DONE    = 3
+	RUNNING = 4
+	WAIT    = 5
+	TINEOUT = 6
 )
 
 type getTaskArgs struct {

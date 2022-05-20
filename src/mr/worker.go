@@ -61,7 +61,7 @@ func Worker(mapf func(string, string) []KeyValue,
 	for {
 		args := getTaskArgs{}
 		reply := getTaskReply{}
-		success := call("Coordinator.Ask4Task", &args, &reply)
+		success := call("Coordinator.AskTask", &args, &reply)
 
 		if !success {
 			fmt.Println("Asking 4 Task from Coordinator failed")
@@ -149,7 +149,7 @@ func msg2Coordinator(task_type int, task_id int) bool {
 	reply := postTaskReply{}
 	args.task_type = task_type
 	args.task_id = task_id
-	success := call("Coordinator.Sendmsg2Coordinator", &args, &reply)
+	success := call("Coordinator.askMsg", &args, &reply)
 	return success
 }
 
